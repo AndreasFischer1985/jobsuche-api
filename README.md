@@ -3,7 +3,7 @@ Die Bundesagentur für Arbeit verfügt über die größte Datenbank für offene 
 
 
 ## Authentifizierung
-ie Authentifizierung funktioniert über die clientId:
+Die Authentifizierung funktioniert über die clientId:
 
 **clientId:** jobboerse-jobsuche
 
@@ -16,13 +16,13 @@ Bei folgenden GET-requests ist die clientId als Header-Parameter 'X-API-Key' zu 
 
 Der typische Ablauf ist:
 
-1. **Stellen suchen** via `/pc/v4/jobs` oder `/pc/v4/app/jobs` → `refnr` aus der Antwort merken.
+1. **Stellen suchen** via `/pc/v6/jobs` oder `/pc/v4/app/jobs` → `refnr` aus der Antwort merken (in `/pc/v6/jobs` die `referenznummer`).
 2. **Details abrufen** via `/pc/v4/jobdetails/{base64(refnr)}` (empfohlen) oder `/pc/v3/jobdetails/{base64(refnr)}`.
 3. **Arbeitgeberlogo abrufen** via `/ct/v1/arbeitgeberlogo/{arbeitgeberKundennummerHash}` (sofern im Detail-Response vorhanden).
 
 ## Jobbörse
 
-**URL:** https://rest.arbeitsagentur.de/jobboerse/jobsuche-service/pc/v4/jobs
+**URL:** https://rest.arbeitsagentur.de/jobboerse/jobsuche-service/pc/v6/jobs
 	
 
 Die Jobsuche ermöglicht verfügbare Jobangebote mit verschiedenen get Parametern zu filtern:

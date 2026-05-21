@@ -1,6 +1,6 @@
 openapi: "3.0.0"
 info:
-  description: "Die größte Stellendatenbank Deutschlands durchsuchen, Details zu Stellenanzeigen und Informationen über Arbeitgeber abrufen. <br><br>Die Authentifizierung funktioniert über die clientId:<br><br>clientId: jobboerse-jobsuche<br><br>Bei folgenden GET-requests ist die clientId als Header-Parameter 'X-API-Key' zu übergeben.<br><br>Ablauf: (1) Stellen suchen via /pc/v4/jobs oder /pc/v4/app/jobs → refnr merken. (2) Details abrufen via /pc/v4/jobdetails/{base64(refnr)}. (3) Arbeitgeberlogo abrufen via /ct/v1/arbeitgeberlogo/{arbeitgeberKundennummerHash} (sofern vorhanden)."
+  description: "Die größte Stellendatenbank Deutschlands durchsuchen, Details zu Stellenanzeigen und Informationen über Arbeitgeber abrufen. <br><br>Die Authentifizierung funktioniert über die clientId:<br><br>clientId: jobboerse-jobsuche<br><br>Bei folgenden GET-requests ist die clientId als Header-Parameter 'X-API-Key' zu übergeben.<br><br>Ablauf: (1) Stellen suchen via /pc/v6/jobs oder /pc/v4/app/jobs → refnr merken (in `/pc/v6/jobs` die `referenznummer`). (2) Details abrufen via /pc/v4/jobdetails/{base64(refnr)}. (3) Arbeitgeberlogo abrufen via /ct/v1/arbeitgeberlogo/{arbeitgeberKundennummerHash} (sofern vorhanden)."
   version: "2.1.0"
   title: "Arbeitsagentur Jobsuche API"
 
@@ -8,7 +8,7 @@ servers:
   - url: "https://rest.arbeitsagentur.de/jobboerse/jobsuche-service"
 
 paths:
-  /pc/v4/jobs:
+  /pc/v6/jobs:
     get:
       summary: Jobsuche
       description: "Die Jobsuche ermöglicht verfügbare Jobangebote mit verschiedenen get Parametern zu filtern."
