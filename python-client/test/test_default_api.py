@@ -1,7 +1,7 @@
 """
 Arbeitsagentur Jobsuche API
 
-Die größte Stellendatenbank Deutschlands durchsuchen, Details zu Stellenanzeigen und Informationen über Arbeitgeber abrufen. <br><br>Die Authentifizierung funktioniert über die clientId:<br><br>clientId: jobboerse-jobsuche<br><br>Bei folgenden GET-requests ist die clientId als Header-Parameter 'X-API-Key' zu übergeben.<br><br>Ablauf: (1) Stellen suchen via /pc/v4/jobs oder /pc/v4/app/jobs → refnr merken. (2) Details abrufen via /pc/v4/jobdetails/{base64(refnr)}. (3) Arbeitgeberlogo abrufen via /ct/v1/arbeitgeberlogo/{arbeitgeberKundennummerHash} (sofern vorhanden).  # noqa: E501
+Die größte Stellendatenbank Deutschlands durchsuchen, Details zu Stellenanzeigen und Informationen über Arbeitgeber abrufen. <br><br>Die Authentifizierung funktioniert über die clientId:<br><br>clientId: jobboerse-jobsuche<br><br>Bei folgenden GET-requests ist die clientId als Header-Parameter 'X-API-Key' zu übergeben.<br><br>Ablauf: (1) Stellen suchen via /pc/v6/jobs oder /pc/v4/app/jobs → refnr merken (in `/pc/v6/jobs` die `referenznummer`). (2) Details abrufen via /pc/v4/jobdetails/{base64(refnr)}. (3) Arbeitgeberlogo abrufen via /ct/v1/arbeitgeberlogo/{arbeitgeberKundennummerHash} (sofern vorhanden).  # noqa: E501
 
 The version of the OpenAPI document: 2.1.0
 Contact: kontakt@bund.dev
@@ -52,8 +52,8 @@ class TestDefaultApi(unittest.TestCase):
         """
         pass
 
-    def test_pc_v4_jobs_get(self):
-        """Test case for pc_v4_jobs_get
+    def test_pc_v6_jobs_get(self):
+        """Test case for pc_v6_jobs_get
 
         Jobsuche  # noqa: E501
         """

@@ -1,7 +1,7 @@
 """
 Arbeitsagentur Jobsuche API
 
-Die größte Stellendatenbank Deutschlands durchsuchen, Details zu Stellenanzeigen und Informationen über Arbeitgeber abrufen. <br><br>Die Authentifizierung funktioniert über die clientId:<br><br>clientId: jobboerse-jobsuche<br><br>Bei folgenden GET-requests ist die clientId als Header-Parameter 'X-API-Key' zu übergeben.<br><br>Ablauf: (1) Stellen suchen via /pc/v4/jobs oder /pc/v4/app/jobs → refnr merken. (2) Details abrufen via /pc/v4/jobdetails/{base64(refnr)}. (3) Arbeitgeberlogo abrufen via /ct/v1/arbeitgeberlogo/{arbeitgeberKundennummerHash} (sofern vorhanden).  # noqa: E501
+Die größte Stellendatenbank Deutschlands durchsuchen, Details zu Stellenanzeigen und Informationen über Arbeitgeber abrufen. <br><br>Die Authentifizierung funktioniert über die clientId:<br><br>clientId: jobboerse-jobsuche<br><br>Bei folgenden GET-requests ist die clientId als Header-Parameter 'X-API-Key' zu übergeben.<br><br>Ablauf: (1) Stellen suchen via /pc/v6/jobs oder /pc/v4/app/jobs → refnr merken (in `/pc/v6/jobs` die `referenznummer`). (2) Details abrufen via /pc/v4/jobdetails/{base64(refnr)}. (3) Arbeitgeberlogo abrufen via /ct/v1/arbeitgeberlogo/{arbeitgeberKundennummerHash} (sofern vorhanden).  # noqa: E501
 
 The version of the OpenAPI document: 2.1.0
 Contact: kontakt@bund.dev
@@ -266,12 +266,12 @@ class DefaultApi(object):
             },
             api_client=api_client,
         )
-        self.pc_v4_jobs_get_endpoint = _Endpoint(
+        self.pc_v6_jobs_get_endpoint = _Endpoint(
             settings={
                 "response_type": (JobSearchResponse,),
                 "auth": ["APIKeyHeaders"],
-                "endpoint_path": "/pc/v4/jobs",
-                "operation_id": "pc_v4_jobs_get",
+                "endpoint_path": "/pc/v6/jobs",
+                "operation_id": "pc_v6_jobs_get",
                 "http_method": "GET",
                 "servers": None,
             },
@@ -644,14 +644,14 @@ class DefaultApi(object):
             )
         )
 
-    def pc_v4_jobs_get(self, **kwargs):
+    def pc_v6_jobs_get(self, **kwargs):
         """Jobsuche  # noqa: E501
 
         Die Jobsuche ermöglicht verfügbare Jobangebote mit verschiedenen get Parametern zu filtern.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.pc_v4_jobs_get(async_req=True)
+        >>> thread = api.pc_v6_jobs_get(async_req=True)
         >>> result = thread.get()
 
 
@@ -716,4 +716,4 @@ class DefaultApi(object):
         kwargs["_content_type"] = kwargs.get("_content_type")
         kwargs["_host_index"] = kwargs.get("_host_index")
         kwargs["_request_auths"] = kwargs.get("_request_auths", None)
-        return self.pc_v4_jobs_get_endpoint.call_with_http_info(**kwargs)
+        return self.pc_v6_jobs_get_endpoint.call_with_http_info(**kwargs)

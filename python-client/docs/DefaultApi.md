@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**pc_v3_jobdetails_encrypted_job_code_get**](DefaultApi.md#pc_v3_jobdetails_encrypted_job_code_get) | **GET** /pc/v3/jobdetails/{encryptedJobCode} | Jobdetails (v3)
 [**pc_v4_app_jobs_get**](DefaultApi.md#pc_v4_app_jobs_get) | **GET** /pc/v4/app/jobs | Jobsuche via App
 [**pc_v4_jobdetails_encrypted_job_code_get**](DefaultApi.md#pc_v4_jobdetails_encrypted_job_code_get) | **GET** /pc/v4/jobdetails/{encryptedJobCode} | Jobdetails (v4)
-[**pc_v4_jobs_get**](DefaultApi.md#pc_v4_jobs_get) | **GET** /pc/v4/jobs | Jobsuche
+[**pc_v6_jobs_get**](DefaultApi.md#pc_v6_jobs_get) | **GET** /pc/v6/jobs | Jobsuche
 
 
 # **ct_v1_arbeitgeberlogo_kundennummer_hash_get**
@@ -350,8 +350,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **pc_v4_jobs_get**
-> JobSearchResponse pc_v4_jobs_get()
+# **pc_v6_jobs_get**
+> JobSearchResponse pc_v6_jobs_get()
 
 Jobsuche
 
@@ -407,10 +407,10 @@ with jobsuche.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Jobsuche
-        api_response = api_instance.pc_v4_jobs_get(was=was, wo=wo, berufsfeld=berufsfeld, page=page, size=size, arbeitgeber=arbeitgeber, veroeffentlichtseit=veroeffentlichtseit, zeitarbeit=zeitarbeit, angebotsart=angebotsart, befristung=befristung, arbeitszeit=arbeitszeit, behinderung=behinderung, corona=corona, umkreis=umkreis)
+        api_response = api_instance.pc_v6_jobs_get(was=was, wo=wo, berufsfeld=berufsfeld, page=page, size=size, arbeitgeber=arbeitgeber, veroeffentlichtseit=veroeffentlichtseit, zeitarbeit=zeitarbeit, angebotsart=angebotsart, befristung=befristung, arbeitszeit=arbeitszeit, behinderung=behinderung, corona=corona, umkreis=umkreis)
         pprint(api_response)
     except jobsuche.ApiException as e:
-        print("Exception when calling DefaultApi->pc_v4_jobs_get: %s\n" % e)
+        print("Exception when calling DefaultApi->pc_v6_jobs_get: %s\n" % e)
 ```
 
 
